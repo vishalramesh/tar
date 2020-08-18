@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
     
-    bool args_present[4] = {0, 0, 0, 0};
+    int args_present[4] = {0, 0, 0, 0};
 
     if (!(argc >= 2)) {
         fflush(stdout); 
@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
             return 2;
         }
     }
-    
+
     if (args_present[0]) {
             fflush(stdout);
             fprintf(stderr, "mytar: Refusing to read archive contents from terminal (missing-f option?)\n");
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
     }
 
     FILE *file = fopen(argv[file_arg_index], "r");
-    if (*file == NULL) {
+    if (file == NULL) {
         fflush(stdout);
         fprintf(stderr, "mytar: %s: Cannot open: No such file or directory\n", argv[file_arg_index]);
         fflush(stdout);
