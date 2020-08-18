@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    if (args_present[0]) {
+    if (!args_present[0]) {
             fflush(stdout);
             fprintf(stderr, "mytar: Refusing to read archive contents from terminal (missing-f option?)\n");
             fflush(stdout);
