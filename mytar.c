@@ -82,7 +82,7 @@ int main(int argc, char *argv[]) {
 
     while (tar_file != NULL) {
 
-        fread(header, 512, tar_file);
+        fread(header, 512, 1, tar_file);
 
         for (int i = 0; i < 100; ++i) {
             file_name[i] = header[i];
@@ -122,7 +122,7 @@ int main(int argc, char *argv[]) {
     fclose(tar_file);
 }
 
-void print_default_list_output(char header[]) {
+void print_default_list_output(char file_name[]) {
     int i = 0;
     int printable = 0;
     while (file_name[i] != '\0' && i < 100) {
